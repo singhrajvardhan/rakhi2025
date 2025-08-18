@@ -1,0 +1,963 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raksha Bandhan from Raj Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+     <link rel="icon" href="main.png" />
+    <style>
+        :root {
+            --primary: #e83e8c;
+            --primary-light: #ff7eb9;
+            --secondary: #6f42c1;
+            --secondary-light: #9d65ff;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gold: #ffd700;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffeef6 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .rakhi-loader {
+            width: 100px;
+            height: 100px;
+            border: 5px solid var(--primary-light);
+            border-top: 5px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .rakhi-loader::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: url('https://i.imgur.com/JQqkQzW.png') center/contain no-repeat;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-top: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            color: white;
+            box-shadow: 0 10px 30px rgba(111, 66, 193, 0.3);
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 8s infinite linear;
+        }
+        
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        header * {
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        .from {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 10px 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+            animation: fadeIn 1.6s ease;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(30deg);
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #d2337a;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(232, 62, 140, 0.4);
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            box-shadow: 0 5px 15px rgba(111, 66, 193, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: #5d39a8;
+            box-shadow: 0 15px 30px rgba(111, 66, 193, 0.4);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+        
+        .card p {
+            color: #666;
+        }
+        
+        .wishes-section {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wishes-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .wishes-section h2 {
+            color: var(--secondary);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .wish {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .wish::before, .wish::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-light);
+            position: absolute;
+            opacity: 0.3;
+        }
+        
+        .wish::before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .wish::after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-top: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .signature::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .virtual-rakhi {
+            text-align: center;
+            margin: 70px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .virtual-rakhi h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .virtual-rakhi p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .rakhi-image {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(111, 66, 193, 0.3);
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .rakhi-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px dashed var(--gold);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .rakhi-image img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+        
+        .btn-group {
+            margin-top: 40px;
+        }
+        
+        /* AI Generated Image Section */
+        .ai-image-section {
+            margin: 70px 0;
+            text-align: center;
+        }
+        
+        .ai-image-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .ai-image-container img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .ai-image-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .ai-image-caption {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Music Player */
+        .music-player {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 70px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .music-player h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 0 20px;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: #d2337a;
+        }
+        
+        .play-btn i {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .progress-container {
+            flex-grow: 1;
+            max-width: 400px;
+            height: 6px;
+            background: #eee;
+            border-radius: 3px;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            width: 0%;
+        }
+        
+        .time {
+            font-size: 0.9rem;
+            color: #666;
+            min-width: 40px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 70px;
+            background: var(--dark);
+            color: white;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .floating-rakhi {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-rakhi img {
+            width: 50%;
+            height: 50%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .wishes-section, .virtual-rakhi, .music-player {
+                padding: 30px 20px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                margin: 8px;
+            }
+            
+            .rakhi-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+
+
+          /* Add these new styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .email-form {
+            margin-top: 20px;
+        }
+        
+        .email-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .email-form button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-form button:hover {
+            background: #d2337a;
+        }
+        
+        .funny-message {
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 20px;
+            animation: shake 0.5s ease;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="rakhi-loader"></div>
+        <div class="loading-text">Loading Rakhi Blessings...</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>-❀- Happy Raksha Bandhan -❀-</h1>
+            <p class="subtitle">To My Dearest Sisters</p>
+            <p class="from">From your loving brother, Raj </p>
+            <div class="header-buttons">
+                <a href="#wishes" class="btn">Read My Wishes</a>
+                <a href="#gallery" class="btn btn-secondary">View Memories</a>
+            </div>
+        </header>
+        
+        <section id="wishes" class="wishes-section">
+            <h2>My Heartfelt Wishes</h2>
+            <div class="wish">
+                On this Raksha Bandhan, I want to thank you for always being my strength and support. 
+                No matter where life takes us, you'll always be my precious sister.
+            </div>
+            <div class="wish">
+                The bond we share is more valuable than any gift in this world. 
+                Thank you for all the love, care, and wonderful memories we've created together.
+            </div>
+            <div class="wish">
+                Even though we may not be together today, know that you're always in my thoughts and prayers. 
+                Wishing you endless happiness, success in all your endeavors, and good health always.
+            </div>
+            <div class="signature">Raj Singh</div>
+        </section>
+        
+        <!-- AI Generated Brother-Sister Image -->
+        <section class="ai-image-section">
+            <h2 style="color: var(--primary);">Our Special Bond</h2>
+            <div class="ai-image-container">
+                <img src="main.png" alt="Brother and sister celebrating Rakhi - AI generated image">
+            </div>
+            <p class="ai-image-caption"> our special Rakhi moments together</p>
+        </section>
+        
+        <section id="gallery">
+            <h2 style="text-align: center; color: var(--secondary); margin-bottom: 30px; font-size: 2.2rem;">Our Beautiful Memories</h2>
+            <div class="gallery">
+                <div class="card">
+                    <img src="4.png" alt="Childhood memory">
+                    <div class="card-content">
+                        <h3>Childhood Days</h3>
+                        <p>Remember how we used to fight over toys but always made up before bedtime? Those were the golden days.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="3.png" alt="Family gathering">
+                    <div class="card-content">
+                        <h3>Family Gatherings</h3>
+                        <p>Those summer vacations at grandma's house were filled with laughter, stories, and endless fun.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="2.png" alt="Recent meetup">
+                    <div class="card-content">
+                        <h3>Recent Times</h3>
+                        <p>Even as adults, we still find reasons to laugh together like we used to when we were kids.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Rakhi Music Player -->
+        <section class="music-player">
+            <h2>Raksha Bandhan Special Song</h2>
+            <p>Listen to this special Rakhi song that reminds me of our bond</p>
+            <audio id="rakhi-song" src="12.mp3"></audio>
+            <div class="player-controls">
+                <span class="time" id="current-time">0:00</span>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span class="time" id="duration">0:00</span>
+            </div>
+            <div class="player-controls">
+                <div class="play-btn" id="play-btn">
+                    <i class="fas fa-play" id="play-icon"></i>
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-style: italic;">"Phoolon Ka Taaron Ka" - A classic Rakhi song</p>
+        </section>
+        
+        <section class="virtual-rakhi">
+            <h2>Virtual Rakhi</h2>
+            <p>Since I can't tie a rakhi on your wrist this year, here's a virtual one with all my love and blessings.</p>
+            
+            <div class="rakhi-image">
+                <img src="rk.png" alt="Virtual Rakhi">
+            </div>
+            
+            <div class="btn-group">
+                   <a href="#" class="btn" id="send-gift-btn">Rakhi Gift</a>
+               
+            </div>
+        </section>
+        <div class="popup-overlay" id="gift-popup">
+        <div class="popup-content">
+            <span class="popup-close" id="close-popup">&times;</span>
+            <h3> Rakhi Gift</h3>
+            <div class="funny-message">Jija Hokam / Didi ma bhout garib huu thode paise mil jate toh acha hota ! 😢</div>
+        <!-- Loading Screen 
+       //     <p>Enter your email to receive special Rakhi wishes and virtual gifts:</p>
+            <form class="email-form" id="wish-form">
+                <input type="email" id="user-email" placeholder="Your email address" required>
+                <button type="submit">Send Wishes</button>
+            </form>
+            -->
+        </div>
+    </div>
+
+
+
+    </div>
+    
+    <div class="floating-rakhi" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <img src="rk.png" alt="Rakhi">
+    </div>
+    
+    <footer>
+       
+         <a href="http://www.rajvardhansingh.in" style="color: white; text-decoration: none;">
+    <span style="text-decoration: underline;">Rajvardhan Singh </span></a>| Made with ❤️ for my wonderful sisters
+</span>
+       
+    </footer>
+
+    <script>
+        // Loading screen transition
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loader').style.opacity = '0';
+                document.querySelector('.container').style.opacity = '1';
+                setTimeout(function() {
+                    document.querySelector('.loader').style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.wish, .card, .virtual-rakhi, .ai-image-section, .music-player');
+            elements.forEach(el => {
+                const elementPosition = el.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if(elementPosition < screenPosition) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state
+        window.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.wish, .card, .virtual-rakhi, .ai-image-section, .music-player');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        });
+
+        // Add scroll event listener
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        animateOnScroll();
+
+        // Music Player Functionality
+        const audio = document.getElementById('rakhi-song');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const progress = document.getElementById('progress');
+        const progressContainer = document.getElementById('progress-container');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+
+        // Play/Pause
+        playBtn.addEventListener('click', () => {
+            if(audio.paused) {
+                audio.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                audio.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+
+        // Update progress bar
+        audio.addEventListener('timeupdate', updateProgress);
+
+        // Click on progress bar
+        progressContainer.addEventListener('click', setProgress);
+
+        // Song ends
+        audio.addEventListener('ended', () => {
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            progress.style.width = '0%';
+            currentTimeEl.textContent = '0:00';
+        });
+
+        // Time format
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Update progress bar
+        function updateProgress(e) {
+            const { duration, currentTime } = e.srcElement;
+            const progressPercent = (currentTime / duration) * 100;
+            progress.style.width = `${progressPercent}%`;
+            currentTimeEl.textContent = formatTime(currentTime);
+            
+            if(!isNaN(duration)) {
+                durationEl.textContent = formatTime(duration);
+            }
+        }
+
+
+             // Virtual Gift Popup Functionality
+        const sendGiftBtn = document.getElementById('send-gift-btn');
+        const giftPopup = document.getElementById('gift-popup');
+        const closePopup = document.getElementById('close-popup');
+        const wishForm = document.getElementById('wish-form');
+        
+        sendGiftBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            giftPopup.classList.add('active');
+        });
+        
+        closePopup.addEventListener('click', () => {
+            giftPopup.classList.remove('active');
+        });
+        
+        // Close popup when clicking outside
+        giftPopup.addEventListener('click', (e) => {
+            if(e.target === giftPopup) {
+                giftPopup.classList.remove('active');
+            }
+        });
+        
+        // Form submission
+        wishForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('user-email').value;
+            
+            try {
+                // Send email to backend
+                const response = await fetch('/save-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email }),
+                });
+                
+                if(response.ok) {
+                    alert('Thank you! Rakhi wishes will be sent to your email shortly.');
+                    giftPopup.classList.remove('active');
+                } else {
+                    alert('Something went wrong. Please try again later.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to send. Please try again.');
+            }
+        });
+
+
+
+
+
+
+        
+
+
+
+        // Set progress bar
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        }
+
+        
+
+
+        
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9712d2c0df77dac7',t:'MTc1NTUzNDkxNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"b672b4fcdd89426e996e521002c13760","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
