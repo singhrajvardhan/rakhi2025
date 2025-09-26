@@ -1,8 +1,6 @@
 # -❀- Happy Raksha Bandhan -❀-
 ## To My Dearest Sisters
 From your loving brother, **Raj Singh**
-
-
 [Read My Wishes](#my-heartfelt-wishes) | [View Memories](#our-beautiful-memories)
 
 ---
